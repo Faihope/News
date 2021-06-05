@@ -1,8 +1,10 @@
 import unittest
-from models import news
-from flask import *
+from app.models import source
+from app import app
 
-News = news.News
+
+
+Source = source.Source
 
 class NewsTest(unittest.TestCase):
     '''
@@ -14,9 +16,9 @@ class NewsTest(unittest.TestCase):
         set up method that will run before every test
         '''
         
-        self.new_news = News(1,'bbc','This is our news','www.bbcnews.co.ke','sports','English','Kenya' )
+        self.new_source = Source(1,'bbc','This is our news','www.bbcnews.co.ke','sports','English','Kenya' )
     def test_instance(self):
-        self.assertTrue(isinstance(self.new_news,News))
+        self.assertTrue(isinstance(self.new_source,Source))
         
 if __name__ == '__main__':
     unittest.main()
