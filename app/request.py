@@ -1,10 +1,12 @@
 
+from flask.blueprints import DeferredSetupFunction
 from app.models.articles import Articles
 from os import name
 from app import app
 import urllib.request,json
-from app.models import source
-from app.models import articles
+from app.models import source,articles
+from datetime import datetime
+
 
 Source = source.Source
 Articles = articles.Articles
@@ -14,7 +16,8 @@ api_key = app.config['NEWS_API_KEY']
 
 #Getting the news base url
 base_url = app.config['NEWS_SOURCES_API_BASE_URL']
-# base_url = app.config['NEWS_ARTICLES_API_BASE_URL']
+#Getting the articles url
+articles_url = app.config['ARTICLES_BASE_URL']
 
 
 def get_sources(category):
@@ -58,6 +61,46 @@ def process_results(source_list):
         source_results.append(sources_object)
         
     return source_results
+
+def get_articles(id):
+    '''
+    Processes the articles and returns a list of articles object
+    '''
+    get_articles_url =articles_url.format(id,api_key)
+    with urllib.request.urlopen(get_articles_url) as url:
+        articles_result=json.loads(url.read())  
+        articles_object=None
+        if articles_object['articles']:
+            articles_object=process_articles(articles_result['articles']) 
+    return articles_object
+
+def process_articles(articles_list):
+    '''
+     Function that processes the articles result and transform them to a list of Objects
+    Args:
+        articles_list:A list of dictionaries that contain articles details
+    Returns:
+           articles_result:A list of articles objects  
+    '''
+    
+    articles_object = []
+    for article_item in articles_list:
+        id=article_item.get('id')
+        author=article_item.get('author')
+        title=article_item.get('title')
+        description=article_item.get('description')
+        url=article_item.get('url')
+        image=article_item.get('urlToImage')
+        date=article_item.get('publishedAt')
+        
+        
+        if image:
+            articles_result =Articles(id,author,title,description,url,image,date)
+            articles_object.append(articles_result)
+    return articles_object
+    
+    
+    
         
         
         
