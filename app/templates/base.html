@@ -1,5 +1,4 @@
-{% import 'macros.html' as macro%}
-{% extends 'base.html'%}
+{% extends 'bootstrap/base.html'%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,13 +8,8 @@
     <title>Document</title>
 </head>
 <body>
-    {% block content %}
-    <h1>{{welcome}}</h1>
-    Getting news source
-    <h2>News Source</h2>
-    <ol>
-       {{macro.displaySourceList(sources)}}
-    </ol>
-    {% endblock%}
+  {% block content %}  
+
+  {% endblock%}
 </body>
 </html>
