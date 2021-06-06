@@ -12,7 +12,13 @@
     <h2>News Source</h2>
     <ol>
         {% for source in sources%}
+        <!-- <p>{{source.category}}</p> -->
         <li>{{source.name}}</li>
+        <p>{{source.description}}</p>
+        <a href="{{source.url}}">View news</a>
+       
+        <!-- <p>{{source.language}}</p>
+        <p>{{source.country}}</p> -->
         {% endfor %}
     </ol>
 </body>

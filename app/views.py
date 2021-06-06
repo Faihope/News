@@ -11,7 +11,7 @@ def index():
     '''
     
     sources = get_sources('sources')
+  
     print(sources)
     welcome = 'Welcome to News App'
     return render_template('index.html',welcome=welcome,sources= sources)
-

@@ -1,6 +1,6 @@
 class Source:
     '''
-    News class to define News source Objects 
+    Source class to define News source Objects 
     '''
     
     def __init__(self,id,name,description,url,category,language,country):
@@ -12,4 +12,4 @@ class Source:
         self.language =language
         self.country =country
         
-        pass
+      
