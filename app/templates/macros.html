@@ -6,11 +6,12 @@
     {% for source in source_row %}
     <div class="col-md-3">
         <div class="panel-heading">
-            <a href="/sources/{{source.url}}">{{ source.name}}</a>
+          
+            <a href="{{source.url}}">{{ source.name}}</a>
         </div>
         <div class="panel-heading">
             <p>{{source.description |truncate(100) }}</p>
-            <a href="/sources/{{source.id}}" class="btn btn-primary btn-sm">visit {{source.name}}</a>
+            <a href="{{source.url}}" class="btn btn-info btn-sm">visit {{source.name}}</a>
         </div>
     </div>
     {% endfor %}

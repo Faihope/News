@@ -62,17 +62,23 @@ def process_results(source_list):
         
     return source_results
 
+
 def get_articles(id):
     '''
-    Processes the articles and returns a list of articles object
+    Function that gets the json response to our url request
     '''
-    get_articles_url =articles_url.format(id,api_key)
+    get_articles_url = articles_url.format(id,api_key)
     with urllib.request.urlopen(get_articles_url) as url:
-        articles_result=json.loads(url.read())  
-        articles_object=None
-        if articles_object['articles']:
-            articles_object=process_articles(articles_result['articles']) 
-    return articles_object
+        get_articles_data = url.read()
+        get_articles_response = json.loads(get_articles_data)
+        
+        articles_results = None
+        
+        if get_articles_response['articles']:
+            articles_results_list = get_articles_response['articles']
+            articles_results = process_articles(articles_results_list)
+            
+    return articles_results
 
 def process_articles(articles_list):
     '''
@@ -97,6 +103,7 @@ def process_articles(articles_list):
         if image:
             articles_result =Articles(id,author,title,description,url,image,date)
             articles_object.append(articles_result)
+    print(articles_object)
     return articles_object
     
     

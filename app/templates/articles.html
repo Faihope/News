@@ -1,1 +1,10 @@
 <h1>Hey ,i am news articles</h1>
+<li>
+    {% for article in articles %}
+    <li>{{ article.title}}</li>
+    <img src="{{article.image}}" alt="Article-image" width=50%>
+    <p>{{article.description}}</p>
+    <h2>{{article.date}}</h2>
+    <a href="{{article.url}}">view news</a>
+{% endfor %}
+</li>
