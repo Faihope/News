@@ -47,3 +47,14 @@ def business():
     
     return render_template('articles.html',articles=articles,title=title)
     
+@app.route('/sports')
+def sports():
+    '''
+    articles function that views articles page
+    '''
+    articles = get_articles('sports')
+    
+    title = f'NH | {id}'
+    
+    return render_template('articles.html',articles=articles,title=title)
+    
