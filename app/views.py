@@ -36,3 +36,14 @@ def technology():
     
     return render_template('articles.html',articles=articles,title=title)
     
+@app.route('/business')
+def business():
+    '''
+    articles function that views articles page
+    '''
+    articles = get_articles('business')
+    
+    title = f'NH | {id}'
+    
+    return render_template('articles.html',articles=articles,title=title)
+    
