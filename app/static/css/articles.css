@@ -1,0 +1,28 @@
+h1,h2{
+    text-align: center;
+    color: rgb(190, 48, 48);
+    font-weight:4px ;
+
+}
+
+ul>li{
+    list-style: none;
+}
+.container{
+  width: 70% auto;
+  color: black;
+  margin:auto;
+ 
+}
+.col-md-6{
+    margin: 0 auto ;
+   
+}
+hr{
+    border: 4%;
+    width: auto 75%;
+    margin: 2px auto;
+}
+.desc{
+    margin-top: 5%;
+}
