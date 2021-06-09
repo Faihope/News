@@ -1,23 +1,19 @@
-
-from flask.blueprints import DeferredSetupFunction
-from app.models.articles import Articles
-from os import name
-from app import app
+from .models import Articles,Source
 import urllib.request,json
-from app.models import source,articles
+
 from datetime import datetime
 
+# Getting api key
+api_key = None
+# Getting the movie base url
+base_url = None
+articles_url=None
 
-Source = source.Source
-Articles = articles.Articles
-
-#Getting api key
-api_key = app.config['NEWS_API_KEY']
-
-#Getting the news base url
-base_url = app.config['NEWS_SOURCES_API_BASE_URL']
-#Getting the articles url
-articles_url = app.config['ARTICLES_BASE_URL']
+def configure_request(app):
+    global api_key,articles_url,base_url
+    api_key = app.config['NEWS_API_KEY']
+    base_url = app.config['NEWS_SOURCES_API_BASE_URL']
+    articles_url = app.config['ARTICLES_BASE_URL']
 
 
 def get_sources(category):
@@ -103,7 +99,7 @@ def process_articles(articles_list):
         if image:
             articles_result =Articles(id,author,title,description,url,image,date)
             articles_object.append(articles_result)
-    print(articles_object)
+   
     return articles_object
     
     

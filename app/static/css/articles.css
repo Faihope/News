@@ -1,28 +1,35 @@
-h1,h2{
+h1,
+h2 {
     text-align: center;
     color: rgb(190, 48, 48);
-    font-weight:4px ;
+    font-weight: 4px;
 
 }
 
-ul>li{
+ul>li {
     list-style: none;
+
 }
-.container{
-  width: 70% auto;
-  background-color: cornsilk;
-  margin:auto;
- 
+
+.container {
+    width: 70% auto;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin: auto;
+    position: fixed;
+    height: 100%;
 }
-.col-md-6{
-    margin: 0 auto ;
-   
+
+.col-md-6 {
+    margin: 0 auto;
+
 }
-hr{
+
+hr {
     border: 4%;
     width: auto 75%;
     margin: 2px auto;
 }
-.desc{
+
+.desc {
     margin-top: 5%;
 }

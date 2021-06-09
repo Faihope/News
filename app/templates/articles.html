@@ -1,8 +1,12 @@
 
+
 <link rel="stylesheet" href="{{url_for('static',filename='css/articles.css')}}">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" integrity="undefined" crossorigin="anonymous">
+
 <h1>Welcome to our articles </h1>
+<!-- <li><a href="/sources">Home</a></li> -->
 <div class="container">
+
     {% for article in articles %}
     <hr>
    
@@ -10,7 +14,7 @@
   
         <div class="col-md-5">
             <h5>{{ article.title}}</h5>
-            <h5>Date: {{article.date}}</h5>
+            <p>Date: {{article.date}}</p>
             <img src="{{article.image}}" alt="Article-image" width=100%>
         </div>
         <div class="col-md-5 desc">
