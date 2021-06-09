@@ -20,6 +20,7 @@ Use this command to clone `$ git clone https://github.com/Faihope/News`
 ### Technologies Used
 Python
 Git       |
-
+## live link
+Find the live link here 'https://mynewslistapp.herokuapp.com/'
 ### License
 This project is under the  [MIT](license) licence
