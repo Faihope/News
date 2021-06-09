@@ -1,21 +1,20 @@
-{% import 'macros.html' as macro%}
-{% extends 'base.html'%}
+<!-- {% import 'macros.html' as macro%}
+{% extends 'base.html'%} -->
 
 <!-- style block -->
 {% block styles%}
-    {{ super() }}
-    <link rel="stylesheet" href="{{url_for('static',filename='css/articles.css')}}">
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/articles.css')}}">
 {% endblock %}
-    {% block content %}
-    <h1>{{welcome}}</h1>
-    <!-- Getting news source -->
-    <div class="container">
-        <h2>News Sources</h2>
-        <ol>
-           {{macro.displaySourceList(sources)}}
-        </ol>
-       
-    </div>
-  
-    {% endblock%}
+{% block content %}
+<h1>{{welcome}}</h1>
+<!-- Getting news source -->
+<div class="container">
+    <h2>News Sources</h2>
+    <ol>
+        {{macro.displaySourceList(sources)}}
+    </ol>
 
+</div>
+
+{% endblock%}
